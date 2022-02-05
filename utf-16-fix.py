@@ -1,0 +1,8 @@
+file = open("outTree.txt", "r", encoding = 'UTF-8')
+content = file.read()
+file.close()
+file = open("outTree.txt", "w", encoding = 'UTF-8')
+file.write(content)
+file.close()
+print("*********For file outTree.txt*********")
+print("***UTF-16 has been changed to UTF-8***")

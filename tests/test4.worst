@@ -1,0 +1,37 @@
+,1 <- 9
+,2 <- 89
+,15 <- 55
+DEBUG ,15
+
+$12 <- {
+	.9 <- T
+	
+	(.9 eq T) {
+		,#1
+		DEBUG ,1
+		,*2
+		[[ ,2 eq 0 ]] .9 <- F
+	}
+	,0 <- ,1
+}
+
+DEBUG ,1
+DEBUG ,2
+
+,1 <- ,15
+,2 <- 45
+$14 <- $12
+$14()
+,15 <- ,0
+DEBUG ,15
+
+DEBUG $14 eq $12
+DEBUG $14 eq np
+DEBUG $10 eq np
+$10()
+$10 <- { np }
+$10()
+DEBUG $10 eq np
+$11 <- $10
+DEBUG $11 eq np
+DEBUG $12 eq np

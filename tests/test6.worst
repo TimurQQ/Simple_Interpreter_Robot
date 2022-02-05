@@ -1,0 +1,17 @@
+.12 <- T
+.13 <- F
+
+DEBUG .# .12
+DEBUG .# .13
+DEBUG .# .12 .13
+.12 <- F
+DEBUG 9999
+DEBUG .# .12 .13
+DEBUG .# (.12 eq .13)
+DEBUG 9999
+.12 <- T
+DEBUG .# .12 eq .13
+DEBUG .# .# .12
+DEBUG .# .# .13
+DEBUG .# .# .12 .13
+

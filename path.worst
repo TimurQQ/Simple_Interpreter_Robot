@@ -1,0 +1,147 @@
+,12: 20-20
+
+$14: 4
+$41: 4
+
+$14: 0 <- {
+	,0 <- mf
+	DEBUG ,0
+	[[,0 eq T]] {
+		,*10
+		MSG "dec x"
+	}
+	[[,0 eq F]] {
+		MSG "No Way"
+	}
+}
+
+$14: 1 <- {
+	,0 <- mr
+	[[,0 eq T]] {
+		,#11
+		MSG "inc y"
+	}
+	[[,0 eq F]] {
+		MSG "No Way"
+	}
+}
+
+$14: 2 <- {
+	,0 <- mb
+	[[,0 eq T]] {
+		,#10
+		MSG "inc x"
+	}
+	[[,0 eq F]] {
+		MSG "No Way"
+	}
+}
+
+$14: 3 <- {
+	,0 <- ml
+	[[,0 eq T]] {
+		,*11
+		MSG "dec y"
+	}
+	[[,0 eq F]] {
+		MSG "No Way"
+	}
+}
+
+$41: 0 <- $14: 2
+$41: 1 <- $14: 3
+$41: 2 <- $14: 0
+$41: 3 <- $14: 1
+
+$15 <- {
+	,12: ,10-,11 <- T 
+	MSG "Try to move front"
+	$14: 0 ()
+	[[,0 eq T]] {
+		MSG "Good MOVE"
+		DEBUG ,10
+		DEBUG ,11
+		[[ (,12: ,10-,11) eq T ]] {
+			MSG "ALREADY USED"
+		}
+		[[ .# ((,12: ,10-,11) eq T) ]] {
+			MSG "NOT USED"
+			$15()
+		}
+		MSG "Move BACK"
+		$41: 0 ()
+	}
+	
+	MSG "Try to move right"
+	$14: 1 ()
+	[[,0 eq T]] {
+		MSG "Good MOVE"
+		DEBUG ,10
+		DEBUG ,11
+		[[ (,12: ,10-,11) eq T ]] {
+			MSG "ALREADY USED"
+		}
+		[[ .# ((,12: ,10-,11) eq T) ]] {
+			MSG "NOT USED"
+			$15()
+		}
+		MSG "Move LEFT"
+		$41: 1 ()
+	}
+	
+	
+	MSG "Try to move back"
+	$14: 2 ()
+	[[,0 eq T]] {
+		MSG "Good MOVE"
+		DEBUG ,10
+		DEBUG ,11
+		[[ (,12: ,10-,11) eq T ]] {
+			MSG "ALREADY USED"
+		}
+		[[ .# ((,12: ,10-,11) eq T) ]] {
+			MSG "NOT USED"
+			$15()
+		}
+		MSG "Move FRONT"
+		$41: 2 ()
+	}
+	
+	
+	MSG "Try to move left"
+	$14: 3 ()
+	[[,0 eq T]] {
+		MSG "Good MOVE"
+		DEBUG ,10
+		DEBUG ,11
+		[[ (,12: ,10-,11) eq T ]] {
+			MSG "ALREADY USED"
+		}
+		[[ .# ((,12: ,10-,11) eq T) ]] {
+			MSG "NOT USED"
+			$15()
+		}
+		MSG "Move RIGHT"
+		$41: 3 ()
+	}
+}
+
+.5 <- T
+(.5 eq T) {
+	,10 <- 10
+	,11 <- 10
+	
+	,1 <- 0
+	,2 <- 0
+	
+	(.#(,1 eq 20)) {
+		(.#(,2 eq 20)) {
+			,12: ,1-,2 <- F
+			,#1
+			,#2
+		}
+	}
+	
+	$15()
+	[[ tp eq F ]] .5 <- F
+}
