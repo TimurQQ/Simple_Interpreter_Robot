@@ -1,4 +1,13 @@
 # Simple_Interpreter_Robot
+
+This project supported only for linux.
+
+**Requirements:**
+	
+	py3	       --> sudo apt-get install python3.<specific version>  {e.g sudo apt-get install python3.9}
+	yacc(bison)    --> sudo apt-get install bison
+	flex	       --> sudo apt-get install flex
+
 **The Worst Programming Language Ever. Well ... Let's interpret it!!!**
 
 **The Project struct:**
@@ -10,6 +19,8 @@
 	labirints/
   
 	tests/
+	
+	./
   
 **.gitignore**   -  Files you shouldn't see :)
 
