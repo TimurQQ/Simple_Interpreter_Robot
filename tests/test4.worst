@@ -29,7 +29,7 @@ DEBUG $14 eq $12
 DEBUG $14 eq np
 DEBUG $10 eq np
 $10()
-$10 <- { np }
+$10 <- np
 $10()
 DEBUG $10 eq np
 $11 <- $10

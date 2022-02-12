@@ -10,8 +10,11 @@ tests
 ./make.sh tests/test2.worst    ARRAYS
 ./make.sh tests/test3.worst    NEGATIVE NUMBERS
 ./make.sh tests/test4.worst    FUNCTIONS+EQ_NP+FUNC_ASSIGN+FUNC_EQ
+
 ./make.sh tests/test5.worst    TEST RECURSIVE EXPRESSIONS IN ARRAY INDICES
 ./make.sh tests/test6.worst    TEST NOR_OPERATOR
+
+
 ./make.sh tests/test7.worst    TEST FUNC_ARRAYS and ARRAY_ELEM_EQ
 ./make.sh tests/test8.worst    TEST ATTACH\DETACH FUNCTIONS TO VARS
 ./make.sh tests/test9.worst    TEST MESSAGING "string" values
